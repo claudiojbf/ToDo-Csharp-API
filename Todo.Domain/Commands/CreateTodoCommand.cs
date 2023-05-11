@@ -1,4 +1,5 @@
 using Flunt.Notifications;
+using Flunt.Validations;
 using Todo.Shared.Commands.Contracts;
 
 namespace Todo.Domain.Commands;
@@ -18,8 +19,13 @@ public class CreateTodoCommand : Notifiable<Notification>, ICommand
     public string? User { get; set; }
     public DateTime Date { get; set; }
 
-    public bool Validate()
+    public void Validate()
     {
-        throw new NotImplementedException();
+        AddNotifications(
+            new Contract<Notification>()
+                .Requires()
+                .IsGreaterOrEqualsThan(Title, 3, "Title", "Por favor, descreva melhor essa tarefa!")
+                .IsGreaterOrEqualsThan(User, 6, "User", "Usuário Invalido")
+        );
     }
 }
