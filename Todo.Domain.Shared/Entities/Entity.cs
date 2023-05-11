@@ -1,4 +1,4 @@
-namespace Todo.Domain.Entities;
+namespace Todo.Shared.Entities;
 
 public abstract class Entity : IEquatable<Entity>
 {

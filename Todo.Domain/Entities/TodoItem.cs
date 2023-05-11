@@ -1,3 +1,5 @@
+using Todo.Shared.Entities;
+
 namespace Todo.Domain.Entities;
 
 public class TodoItem : Entity
