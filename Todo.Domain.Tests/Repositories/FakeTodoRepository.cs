@@ -9,6 +9,11 @@ public class FakeTodoRepository : ITodoRepository
     {
     }
 
+    public TodoItem GetById(Guid Id, string User)
+    {
+        return new TodoItem("Titulo Aqui","Claudio José", DateTime.Now);
+    }
+
     public void Update(TodoItem item)
     {
     }

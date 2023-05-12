@@ -6,16 +6,19 @@ namespace Todo.Domain.Commands;
 
 public abstract class MarkTodo : Notifiable<Notification>, ICommand
 {
-    public MarkTodo(){ }
+    public MarkTodo()
+    { 
+        User = "";
+    }
 
-    public MarkTodo(Guid id, string? user)
+    public MarkTodo(Guid id, string user)
     {
         Id = id;
         User = user;
     }
 
     public Guid Id { get; set; }
-    public string? User { get; set; }
+    public string User { get; set; }
     public void Validate()
     {
         AddNotifications(
